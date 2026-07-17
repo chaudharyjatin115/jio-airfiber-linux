@@ -29,6 +29,8 @@ The project is currently in the research phase.
 * [ ] Develop a desktop interface
 
 ## Repository Structure
+
+```text
 apk/
 ├── original/
 ├── patched/
