@@ -72,9 +72,7 @@ This project exists to understand those protocols and build an open-source alter
 
 ## Progress
 
-### Day 1
-
-* Still in research phase
+### Still in research phase
 ## Legal
 
 This project is intended for research and interoperability with hardware owned by the user.
