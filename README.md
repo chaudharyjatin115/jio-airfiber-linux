@@ -74,11 +74,7 @@ This project exists to understand those protocols and build an open-source alter
 
 ### Day 1
 
-* Repository created
-* Research environment configured
-* Reverse engineering toolchain installed
-* Initial project structure prepared
-
+* Still in research phase
 ## Legal
 
 This project is intended for research and interoperability with hardware owned by the user.
