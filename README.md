@@ -66,7 +66,7 @@ tests/
 
 ## Motivation
 
-Linux users shouldn't have to rely on an Android application for basic device management if the functionality can be implemented through documented and interoperable protocols.
+I didn't like to rely on an Android application for basic device management if the functionality can be implemented through documented and interoperable protocols.
 
 This project exists to understand those protocols and build an open-source alternative.
 
