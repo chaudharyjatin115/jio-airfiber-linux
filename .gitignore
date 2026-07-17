@@ -1,0 +1,32 @@
+# Decompiled output
+apk/decompiled/
+
+# APKs
+apk/original/*.apk
+apk/patched/*.apk
+
+# Captures
+captures/**/*.pcap
+captures/**/*.pcapng
+captures/**/*.har
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Ghidra
+ghidra/projects/**/*.rep
+ghidra/projects/**/*.gpr
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
