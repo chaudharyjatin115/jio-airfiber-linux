@@ -1,0 +1,2 @@
+Get it from here 
+https://www.apkmirror.com/apk/jio-platforms-limited/jiohome/jiohome-2-1-90-release/jiohome-2-1-90-android-apk-download/download/?key=05f964fe586a7438da457170c1470d5eaf30f7ec&forcebaseapk=true
