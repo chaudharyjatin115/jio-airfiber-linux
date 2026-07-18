@@ -1,34 +1,22 @@
 # Jio AirFiber Linux
 
-> Reverse engineering the JioHome Android application to build an open-source Linux client for Jio AirFiber devices.
+> Reverse engineering the JioHome Android application to build a native Linux client for Jio AirFiber.
 
-This repository documents my research into how the JioHome app communicates with Jio AirFiber hardware. The long-term goal is to develop a native Linux utility that provides the same functionality without requiring the official Android application.
-
-Along the way, this repository serves as a place to document protocols, APIs, research notes, and implementation progress.
-
-## Goals
-
-* Analyze the JioHome Android application.
-* Document the communication protocol.
-* Understand authentication and device management.
-* Build a native Linux CLI.
-* Develop a graphical Linux client.
+This project is an attempt to understand how the JioHome Android app communicates with Jio AirFiber devices and to implement an open-source Linux alternative. The repository contains research notes, protocol documentation, helper scripts, and the source code for the client as development progresses.
 
 ## Current Status
 
-The project is currently in the research phase.
+🚧 Early research.
 
-### Roadmap
+## Goals
 
-* [ ] Analyze the APK
-* [ ] Document network traffic
-* [ ] Reverse engineer authentication
-* [ ] Identify local and cloud APIs
-* [ ] Investigate native libraries
-* [ ] Implement `jioctl`
-* [ ] Develop a desktop interface
+* Reverse engineer the JioHome APK
+* Document the communication protocol
+* Understand authentication and request flow
+* Build a native CLI (`jioctl`)
+* Develop a Linux desktop application in the future
 
-## Repository Structure
+## Repository Layout
 
 ```text
 apk/
@@ -52,60 +40,119 @@ src/
 tests/
 ```
 
-## Tooling
+## Requirements
 
+* Arch Linux
 * Android Studio
-* ADB
-* JADX
-* Apktool
-* Frida
-* Ghidra
-* Wireshark
-* mitmproxy
-* Python
+* Java (JDK)
+* Python 3
+* Git
 
-## Motivation
+Android Studio, JDK and Apktool were already installed when this project was started.
 
-I didn't like to rely on an Android application for basic device management if the functionality can be implemented through documented and interoperable protocols.
+## Installing the Toolchain
 
-This project exists to understand those protocols and build an open-source alternative.
-
-## Progress
-
-### Still in research phase
-## Legal
-
-This project is intended for research and interoperability with hardware owned by the user.
-
-This repository does **not** include proprietary source code, assets, or binaries from the JioHome application. Only original code, documentation, and independently derived observations are published.
-
-Users are responsible for ensuring their use of this project complies with applicable laws, license agreements, and terms of service.
-
-## Contributing
-
-Contributions are welcome.
-
-If you've identified undocumented endpoints, protocol behavior, or implementation improvements, feel free to open an issue or submit a pull request with enough detail for others to reproduce your findings.
-
-## Vision
-
-The end goal is a native Linux utility similar to:
+### Reverse engineering tools
 
 ```bash
-jioctl login
-jioctl status
-jioctl clients
-jioctl wifi enable
-jioctl wifi disable
-jioctl reboot
-jioctl firewall
-jioctl speedtest
+sudo pacman -S android-tools
+sudo pacman -S jadx
+sudo pacman -S ghidra
+sudo pacman -S mitmproxy
+sudo pacman -S wireshark-qt
+sudo pacman -S tshark
+sudo pacman -S tcpdump
+sudo pacman -S nmap
+sudo pacman -S jq ripgrep fd bat fzf tree hexedit
+sudo pacman -S clang cmake ninja gcc make
+sudo pacman -S rust
+sudo pacman -S go
 ```
 
-with a graphical interface planned for the future.
+### Optional (AUR)
+
+```bash
+yay -S burpsuite
+yay -S radare2
+```
+
+### Allow Wireshark to capture packets
+
+```bash
+sudo gpasswd -a $USER wireshark
+```
+
+Log out and back in after running the command.
+
+## Python Environment
+
+Python packages should be installed inside a virtual environment.
+
+Create one inside the project:
+
+```bash
+python -m venv .venv
+```
+
+Activate it:
+
+```bash
+source .venv/bin/activate
+```
+
+Upgrade pip:
+
+```bash
+python -m pip install --upgrade pip
+```
+
+Install the required packages:
+
+```bash
+python -m pip install \
+frida-tools \
+objection \
+requests \
+aiohttp \
+websocket-client \
+protobuf \
+grpcio \
+grpcio-tools \
+cryptography \
+pycryptodome \
+rich \
+typer
+```
+
+Whenever you work on the project, activate the environment first:
+
+```bash
+source .venv/bin/activate
+```
+
+## Planned Features
+
+* APK analysis
+* Protocol documentation
+* Authentication implementation
+* Client discovery
+* Device information
+* Connected client list
+* Wi-Fi configuration
+* Router reboot
+* Firewall configuration
+* Desktop interface
+
+## Legal
+
+This repository contains original code and documentation only.
+
+No proprietary APKs, source code, or assets are included. If you want to reproduce the research, obtain the JioHome APK yourself and place it in:
+
+```text
+apk/original/
+```
 
 ## Disclaimer
 
-This is an independent open-source research project and is **not affiliated with, endorsed by, or sponsored by Jio or Reliance Industries Limited**.
-
-All trademarks, product names, and logos are the property of their respective owners.
+This is an independent research project and is not affiliated with or endorsed by Jio or Reliance Industries Limited.
